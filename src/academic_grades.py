@@ -17,3 +17,9 @@ class GradeSystem:
             "semester": semester,
             "grade": grade
         })
+
+    def passed(self, student, subject):
+        for record in self.grades:
+            if record["student"] == student and record["subject"] == subject:
+                return record["grade"] >= 3.0
+        return False
