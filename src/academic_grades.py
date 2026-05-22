@@ -24,3 +24,9 @@ class GradeSystem:
             if record["student"] == student and record["subject"] == subject:
                 return record["grade"] >= PASSING_GRADE
         return False
+    
+    def average(self, student):
+        student_grades = [r["grade"] for r in self.grades if r["student"] == student]
+        if not student_grades:
+            return 0.0
+        return sum(student_grades) / len(student_grades)
