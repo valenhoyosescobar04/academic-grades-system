@@ -11,6 +11,8 @@ class GradeSystem:
             raise ValueError(f"Grade must be between {MIN_GRADE} and {MAX_GRADE}")
 
     def register_grade(self, student, subject, semester, grade):
+        if self._is_duplicate(student, subject, semester):
+            raise ValueError("Grade already registered for this subject and semester")
         self._validate_grade(grade)
         self.grades.append({
             "student": student,
@@ -34,3 +36,11 @@ class GradeSystem:
     
     def _get_student_records(self, student):
         return [r for r in self.grades if r["student"] == student]
+    
+    def _is_duplicate(self, student, subject, semester):
+        for record in self.grades:
+            if record["student"] == student and \
+            record["subject"] == subject and \
+            record["semester"] == semester:
+                return True
+        return False
