@@ -27,3 +27,18 @@ def test_reject_just_above_maximum():
     system = GradeSystem()
     with pytest.raises(ValueError):
         system.register_grade("Laura", "Calculus", "2025-1", 5.1)
+
+def test_pass_with_exact_minimum():
+    system = GradeSystem()
+    system.register_grade("Laura", "Calculus", "2025-1", 3.0)
+    assert system.passed("Laura", "Calculus") == True
+
+def test_fail_just_below_threshold():
+    system = GradeSystem()
+    system.register_grade("Laura", "Physics", "2025-1", 2.9)
+    assert system.passed("Laura", "Physics") == False
+
+def test_fail_with_minimum_grade():
+    system = GradeSystem()
+    system.register_grade("Laura", "History", "2025-1", 0.0)
+    assert system.passed("Laura", "History") == False
