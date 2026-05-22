@@ -1,5 +1,6 @@
 MIN_GRADE = 0.0
 MAX_GRADE = 5.0
+PASSING_GRADE = 3.0
 
 class GradeSystem:
     def __init__(self):
@@ -21,5 +22,5 @@ class GradeSystem:
     def passed(self, student, subject):
         for record in self.grades:
             if record["student"] == student and record["subject"] == subject:
-                return record["grade"] >= 3.0
+                return record["grade"] >= PASSING_GRADE
         return False
