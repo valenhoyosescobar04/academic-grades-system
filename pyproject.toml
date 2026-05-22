@@ -1,0 +1,14 @@
+[project]
+name = "academic-grades-system"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.3",
+    "pytest-bdd>=8.1.0",
+    "pytest-cov>=7.1.0",
+]
