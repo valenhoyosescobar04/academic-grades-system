@@ -175,5 +175,5 @@ Required test coverage of 85% reached. Total coverage: 96.55%
 
 | Pregunta | Respuesta |
 |---|---|
-| ¿Qué diferencia notaste al diseñar los casos antes de codear? | (Escribe aquí al terminar la actividad) |
-| ¿Qué fue lo más difícil del ciclo TDD? | (Escribe aquí al terminar la actividad) |
+| ¿Qué diferencia notaste al diseñar los casos antes de codear? | la principal diferenncia fue que antes de programar ya tenía más claro qué debía hacer el sistema. En vez de empezar a escribir código sin un orden en especifico, primero pensé en los casos que debía probar segun cada requerimiento teniendo en cuenta cosas como notas límite o estudiantes sin notas. Eso hizo que al momento de codear fuera un poco más fácil y con menos posibilidad al error.  |
+| ¿Qué fue lo más difícil del ciclo TDD? | Para mi lo más difícil fue mantener el orden estricto del ciclo. La tentación de escribir toda la lógica de una vez en la fase green era frecuente, porque cuando los tests pasaban la cabeza pedía seguir agregando cosas. También fue difícil respetar que el red tiene que venir primero siempre, sin excepciones, porque instintivamente uno quiere tener algo funcionando antes de probarlo. |
