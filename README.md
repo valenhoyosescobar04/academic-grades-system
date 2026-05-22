@@ -93,3 +93,85 @@ academic-grades-system/
 | CP-15 | REQ4 | Permitir dos materias distintas mismo semestre | Nota de Biología en 2025-1 registrada | Materia: Química, Semestre: 2025-1 | Registrar la nota | Nota guardada sin error | Positivo |
 
 ---
+
+## Parte 3 — Ciclo TDD
+
+| Requerimiento | 🔴 RED | 🟢 GREEN | 🔵 REFACTOR |
+|---|---|---|---|
+| REQ1 — Validar nota 0.0 a 5.0 | Tests de rango y límites | Registro con validación básica | Extraer validación a método separado |
+| REQ2 — Aprobar o reprobar | Tests con 3.0, 2.9 y 0.0 | Lógica de aprobación | Extraer umbral como constante |
+| REQ3 — Calcular promedio | Tests con varias, una y ninguna nota | Cálculo del promedio | Limpiar método de búsqueda de notas |
+| REQ4 — Evitar duplicados | Tests de duplicado por materia y semestre | Validación de duplicados | Extraer verificación a método auxiliar |
+
+---
+
+## Parte 4 — BDD en Gherkin
+
+| Elemento | Ubicación |
+|---|---|
+| Escenarios .feature | tests/features/academic_grades.feature |
+| Step definitions | tests/step_defs/test_academic_grades_bdd.py |
+
+| Elemento requerido | Incluido |
+|---|---|
+| Feature con contexto en lenguaje de negocio | ✓ |
+| Background con precondición común | ✓ |
+| Mínimo 6 escenarios para REQ2, REQ3 y REQ4 | ✓ |
+| Scenario Outline con tabla Examples | ✓ |
+| Escenario de error con mensaje esperado | ✓ |
+| Tags @smoke, @critical, @regression | ✓ |
+
+---
+
+## Parte 5 — Pipeline CI/CD
+
+| Paso | Acción |
+|---|---|
+| 1 | Descargar el repositorio |
+| 2 | Instalar Python y uv |
+| 3 | Instalar dependencias del proyecto |
+| 4 | Ejecutar todos los tests unitarios y BDD |
+| 5 | Fallar si la cobertura baja del 80% |
+
+Archivo: .github/workflows/ci.yml
+
+bash
+uv run pytest --cov=src --cov-report=term-missing --cov-fail-under=80
+
+
+---
+
+## Parte 6 — Cobertura de pruebas
+
+bash
+uv run pytest --cov=src --cov-report=term-missing --cov-fail-under=85
+
+====================================== test session starts =======================================
+platform win32 -- Python 3.11.9, pytest-9.0.3, pluggy-1.6.0
+rootdir: C:\Users\valen\Documents\Valen\Pruebas\academic-grades-system
+configfile: pyproject.toml
+plugins: bdd-8.1.0, cov-7.1.0
+collected 15 items                                                                                
+
+tests\test_academic_grades.py ...............                                               [100%]
+
+========================================= tests coverage =========================================
+________________________ coverage: platform win32, python 3.11.9-final-0 _________________________
+
+Name                     Stmts   Miss  Cover   Missing
+------------------------------------------------------
+src\__init__.py              0      0   100%
+src\academic_grades.py      29      1    97%   29
+------------------------------------------------------
+TOTAL                       29      1    97%
+======================================= 15 passed in 0.15s =======================================
+
+
+---
+
+## Reflexión final
+
+| Pregunta | Respuesta |
+|---|---|
+| ¿Qué diferencia notaste al diseñar los casos antes de codear? | (Escribe aquí al terminar la actividad) |
+| ¿Qué fue lo más difícil del ciclo TDD? | (Escribe aquí al terminar la actividad) |
