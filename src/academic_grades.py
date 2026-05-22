@@ -20,13 +20,17 @@ class GradeSystem:
         })
 
     def passed(self, student, subject):
-        for record in self.grades:
-            if record["student"] == student and record["subject"] == subject:
+        records = self._get_student_records(student)
+        for record in records:
+            if record["subject"] == subject:
                 return record["grade"] >= PASSING_GRADE
         return False
     
     def average(self, student):
-        student_grades = [r["grade"] for r in self.grades if r["student"] == student]
-        if not student_grades:
+        records = self._get_student_records(student)
+        if not records:
             return 0.0
-        return sum(student_grades) / len(student_grades)
+        return sum(r["grade"] for r in records) / len(records)
+    
+    def _get_student_records(self, student):
+        return [r for r in self.grades if r["student"] == student]
