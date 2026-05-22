@@ -145,18 +145,18 @@ uv run pytest --cov=src --cov-report=term-missing --cov-fail-under=80
 
 bash
 uv run pytest --cov=src --cov-report=term-missing --cov-fail-under=85
-
-====================================== test session starts =======================================
+=========================================================== test session starts ===========================================================
 platform win32 -- Python 3.11.9, pytest-9.0.3, pluggy-1.6.0
 rootdir: C:\Users\valen\Documents\Valen\Pruebas\academic-grades-system
 configfile: pyproject.toml
 plugins: bdd-8.1.0, cov-7.1.0
-collected 15 items                                                                                
+collected 26 items                                                                                                                         
 
-tests\test_academic_grades.py ...............                                               [100%]
+tests\step_defs\test_academic_grades_bdd.py ...........                                                                              [ 42%]
+tests\test_academic_grades.py ...............                                                                                        [100%]
 
-========================================= tests coverage =========================================
-________________________ coverage: platform win32, python 3.11.9-final-0 _________________________
+============================================================= tests coverage ==============================================================
+_____________________________________________ coverage: platform win32, python 3.11.9-final-0 _____________________________________________
 
 Name                     Stmts   Miss  Cover   Missing
 ------------------------------------------------------
@@ -164,7 +164,9 @@ src\__init__.py              0      0   100%
 src\academic_grades.py      29      1    97%   29
 ------------------------------------------------------
 TOTAL                       29      1    97%
-======================================= 15 passed in 0.15s =======================================
+Required test coverage of 85% reached. Total coverage: 96.55%
+=========================================================== 26 passed in 0.21s ============================================================
+
 
 
 ---
