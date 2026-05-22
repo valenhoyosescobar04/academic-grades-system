@@ -58,3 +58,19 @@ def test_average_with_single_grade():
 def test_average_with_no_grades():
     system = GradeSystem()
     assert system.average("Laura") == 0.0
+
+def test_reject_duplicate_subject_same_semester():
+    system = GradeSystem()
+    system.register_grade("Laura", "Biology", "2025-1", 3.5)
+    with pytest.raises(ValueError):
+        system.register_grade("Laura", "Biology", "2025-1", 4.0)
+
+def test_allow_same_subject_different_semester():
+    system = GradeSystem()
+    system.register_grade("Laura", "Biology", "2025-1", 3.5)
+    system.register_grade("Laura", "Biology", "2025-2", 4.0)
+
+def test_allow_different_subjects_same_semester():
+    system = GradeSystem()
+    system.register_grade("Laura", "Biology", "2025-1", 3.5)
+    system.register_grade("Laura", "Chemistry", "2025-1", 4.0)
