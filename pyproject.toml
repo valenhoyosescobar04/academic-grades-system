@@ -15,3 +15,8 @@ dev = [
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
+markers = [
+    "smoke: quick sanity checks",
+    "critical: critical path tests",
+    "regression: regression tests",
+]
